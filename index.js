@@ -4,6 +4,23 @@ const PORT = 3000
 
 app.use(express.json())
 
+// static html
+app.get('/html', function (req, res) {
+    res.sendFile('./views/index.html', {root: __dirname })
+})
+
+app.get('/results', function (req, res) {
+
+    axios("https://www.theguardian.com/uk-news")
+    .then(response => {
+        const html = response.data
+        
+
+        res.json({message: "ok"})
+        
+    }).catch(err => console.log(err))
+
+  })
 
 app.get('/tshirt', function (req, res) {
   res.status(200).json({

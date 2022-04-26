@@ -8,5 +8,14 @@
 </head>
 <body>
     <h1>Hi :)</h1>
+    <% const name = 'mario' %>
+
+    <p><%= name %></p>
+    <% if (blogs.length > 0 ) { %>
+        <% blogs.forEach(blog => { %>
+            <h3><%= blog.title %></h3>
+            <p><%= blog.snippet %></p>
+        <% }) %>
+    <% } %>
 </body>
 </html>

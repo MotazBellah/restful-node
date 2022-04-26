@@ -15,9 +15,23 @@ app.get('/html', function (req, res) {
     res.sendFile('./views/index.html', {root: __dirname })
 })
 
-// static html
+
 app.get('/dyn', function (req, res) {
-    res.render('main')
+    const blogs = [
+        {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+        {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+        {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+      ];
+
+    res.render('main', { blogs: blogs})
+})
+
+app.get('/re', function (req, res) {
+    res.redirect('/dyn')
+})
+
+app.get('/create', function (req, res) {
+    res.render('create', { title: "Home"})
 })
 
 app.get('/results', function (req, res) {

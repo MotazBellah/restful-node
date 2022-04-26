@@ -4,9 +4,20 @@ const PORT = 3000
 
 app.use(express.json())
 
+// register view engine
+app.set('view engine', 'ejs')
+// Create a folder to put the views in
+// app.set("views", "myviews")
+
+
 // static html
 app.get('/html', function (req, res) {
     res.sendFile('./views/index.html', {root: __dirname })
+})
+
+// static html
+app.get('/dyn', function (req, res) {
+    res.render('main')
 })
 
 app.get('/results', function (req, res) {
